@@ -1,0 +1,102 @@
+//Activity: Contact manager *
+
+
+//Activity: Contact manager *
+
+
+//Manage Contact List
+
+let contact = [{
+    firstName: 'John',
+    lastName: 'Smith'
+   },
+  {
+  firstName: 'Jane',
+  lastName: 'Doe'
+   }
+];
+
+// start() initialize Welcome message and User Option
+function start() {
+
+  //Welcome message called by function
+  welcome()
+ 
+ //User action called by funtion
+ userAction()
+}
+function welcome() {
+  console.log('Welcome to your contact list');
+
+}
+
+// View All Contact
+
+function viewAllContacts() {
+  for (let i = 0; i < contact.length; i++) {
+      console.log(contact[i]);
+     }
+}
+// Adding Contacts
+function addContact () {
+  const firstName = prompt('Enter Your First Name')
+  const lastName = prompt('Enter Your Last Name')
+
+  const newContact = {
+      firstName: firstName,
+      lastName: lastName
+  }
+  // Push new contact into array
+   contact.push(newContact)
+  console.log('Your contact has been added, Thank You!\nHere is Your Updated Contcts.');
+
+  for (let i = 0; i < contact.length; i++) {
+      console.log(contact[i]);
+       
+     } 
+}
+
+
+function quit() {
+  if(confirm('You are going to stop the "Contact Manager"\nAre you sure?')) {
+      console.log('Contact Manager Stopped\n Please Close Your Browser.')
+  } else {
+      this.userAction()
+  }
+}
+
+// User Action Function 
+function userAction () {
+  console.log('Select from the following options: \n1: View Contacts \n2: Add Contact\n3: Quit');
+  
+  let userSelect;
+  do {
+      userSelect = prompt("Select an option:")
+  } while(!userSelect === '3')
+  
+
+  switch(userSelect) {
+      case '1':
+          viewAllContacts(contact)
+          this.userAction()
+      break;
+      case '2':
+          addContact()
+          this.userAction()
+      break;
+      case '3':
+          quit()
+          this.userAction()
+
+      break;
+      default:
+          
+          console.log("Sorry. I didn't recognize your choice!\nTry again!")
+          //this.userOptions()
+      break;
+}
+
+}
+
+
+console.log(start());
